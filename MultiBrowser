@@ -1,0 +1,49 @@
+package com.multi.Browser;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.Test;
+
+public class MultiBrowser
+{
+	public static WebDriver driver;
+	@Test(priority=2)
+	public void chrome()
+	{
+		System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.get("http://www.guru99.com/selenium-tutorial.html");
+		driver.quit();
+	}
+	@Test(priority=1)
+	public void firefox()
+	{
+		driver=new FirefoxDriver();
+		driver.get("http://www.guru99.com/selenium-tutorial.html");
+		driver.quit();
+	}
+	@Test(priority=0)
+	public void ie()
+	{
+		System.setProperty("webdriver.ie.driver","drivers/IEDriverServer.exe");
+		driver=new InternetExplorerDriver();
+		driver.get("http://www.guru99.com/selenium-tutorial.html");
+		driver.quit();
+	}
+	public void safari()
+	{
+		driver=new SafariDriver();
+		driver.get("http://www.guru99.com/selenium-tutorial.html");
+	}
+	public void opera()
+	{
+		driver=new OperaDriver();
+		driver.get("http://www.guru99.com/selenium-tutorial.html");
+	}
+	
+	
+}
