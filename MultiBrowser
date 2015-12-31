@@ -48,3 +48,9 @@ public class MultiBrowser
 	
 }
 http://peter.sh/experiments/chromium-command-line-switches/
+
+
+	ChromeOptions options = new ChromeOptions();
+		options.addArguments("-incognito");
+		options.addArguments("--disable-popup-blocking");
+		ChromeDriver driver = new ChromeDriver(options);
